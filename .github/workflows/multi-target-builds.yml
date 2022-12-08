@@ -31,7 +31,7 @@ jobs:
             VERSION=${GITHUB_REF#refs/tags/v}
           fi
           # add the incremented release tag
-          TAGS="${DOCKER_IMAGE}:${VERSION},${{ steps.bump.outputs.new_tag }}" # ${DOCKER_IMAGE}:${SHORTREF}"
+          TAGS="${DOCKER_IMAGE}:${VERSION},${DOCKER_IMAGE}:${{ steps.bump.outputs.new_tag }}" # ${DOCKER_IMAGE}:${SHORTREF}"
           # If the VERSION looks like a version number, assume that
           # this is the most recent version of the image and also
           # tag it 'latest'.
